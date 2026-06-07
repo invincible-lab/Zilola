@@ -1,6 +1,12 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
+    ext {
+        buildToolsVersion = "34.0.0"
+        minSdkVersion = 24
+        compileSdkVersion = 34
+        targetSdkVersion = 34
+    }
     repositories {
         google()
         mavenCentral()
@@ -16,19 +22,8 @@ allprojects {
     repositories {
         google()
         mavenCentral()
-        maven { url 'https://www.jitpack.io' }
-    }
-}
-
-subprojects {
-    configurations.all {
-        resolutionStrategy {
-            eachDependency { details ->
-                if (details.requested.name == 'pdfbox-android') {
-                    details.useTarget 'io.github.tomroush:pdfbox-android:2.0.27.0'
-                }
-            }
-        }
+        jcenter()
+        maven { url 'https://jitpack.io' }
     }
 }
 
