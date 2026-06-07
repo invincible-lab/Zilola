@@ -1,0 +1,26 @@
+workflows:
+  android-workflow:
+    name: Android APK Build
+    max_build_duration: 60
+    instance_type: mac_mini_m1
+    environment:
+      groups:
+        - sdk_paths
+      vars:
+        PACKAGE_NAME: "com.jamoliddin_2004.Zilola"
+      node: latest
+    scripts:
+      - name: Install dependencies
+        script: |
+          npm install
+      - name: Build Android APK
+        script: |
+          cd android
+          chmod +x gradlew
+          ./gradlew assembleDebug
+    artifacts:
+      - android/app/build/outputs/apk/**/*.apk
+    publishing:
+      email:
+        recipients:
+          - nuriddinametov1@gmail.com
