@@ -19,6 +19,13 @@ allprojects {
     jcenter()
     maven { url 'https://jitpack.io' }
   }
+
+  // PDF kutubxonasi xatosini tuzatish uchun quyidagi kod qo'shildi
+  configurations.all {
+    resolutionStrategy {
+      force 'io.github.tomroush:pdfbox-android:2.0.27.0'
+    }
+  }
 }
 
 apply plugin: "expo-root-project"
