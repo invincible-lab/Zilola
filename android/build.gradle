@@ -25,7 +25,7 @@ allprojects {
     project.configurations.all {
       resolutionStrategy.eachDependency { details ->
         if (details.requested.group == 'com.tom_roush' && details.requested.name == 'pdfbox-android') {
-          details.useTarget "com.github.TomRoush:pdfbox-android:2.0.27.0"
+          details.useTarget "io.github.tomroush:pdfbox-android:2.0.27.0"
         }
       }
     }
